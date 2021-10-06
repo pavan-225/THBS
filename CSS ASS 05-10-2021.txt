@@ -1,0 +1,136 @@
+ 1) Inline CSS
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Demo</title>
+</head>
+<body>
+
+<h1 style="color:Blue; font-size:40px; text-align:center;">I am </h1>
+<p style="color:Green; background-color:White; font-family:Arial">This is CSS Demo</p>
+
+
+
+</body>
+</html>
+
+
+2) INTERNAL CSS
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Internal CSS</title>
+    <style>
+         p {
+            text-align:center;
+             color:red;
+            font-size:50px;
+            font-weight:bold;
+         }
+          h1 {
+             color:blue;
+            font-style:bold;
+            font-size:20px;
+         }
+      </style>
+</head>
+<body style="background-color:yellow">
+<div>
+    <p>Aston Martin DB11</p>
+    <h1><marquee direction="right" scrollamount="30"> Blue hills towards your right</marquee></h1>
+    <p>good morning</p>
+</div>
+</body>
+</html>
+
+3) ID Selector
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My First HTML Project</title>
+</head>
+<!--Blink layout Engine for chrome-->
+<style>
+    #name{
+    color:blue;
+    font-size:40px;
+    font-weight:bold;
+    text-align:center;
+    background-color:grey;
+    font-variant:small-caps;
+    }
+    #vicky{
+    color:red;
+    }
+
+</style>
+<body>
+<h1>Welcome buddy</h1>
+<div>
+    <p id="name">
+        Good Morning <br>
+        Suresh Raina
+    </p>
+    <p id="vicky">
+       <marquee direction="right">hello</marquee>
+    </p>
+</div>
+    Raina is the 1st player in the world to score century in all formats
+
+<a href="https://en.wikipedia.org/wiki/Suresh_Raina"><br>go and visit</a>
+<br><br>
+<img src="project_image\Raina.jpg" width="150" height="150">
+<br>
+<table height="200" width="200" border="1">
+    <tr>
+        <th>NAME</th>
+        <th>HIGHEST_ODI</th>
+        <th>HIGHEST_T20</th>
+        <th>HIGHEST_TEST</th>
+        <th>HIGHEST_IPL</th>
+    </tr>
+    <tr>
+        <td>SURESH RAINA</td>
+        <td>116</td>
+        <td>101</td>
+        <td>120</td>
+        <td>100</td>
+    </tr>
+</table>
+</body>
+</html>
+
+
+4) Class Selector
+
+<!--CLASS SELECTOR-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .center
+  {
+    text-align: center;
+    color: red;
+  }
+  .right
+  {
+    text-align: left;
+    color: blue;
+  }
+</style>
+</head>
+<body>
+<h1 class="right">Good morning</h1>
+<h2 class="center">Good evening</h2>
+<p class="right">This is Class Selector Demo</p>
+<p class="left">This is Class Selector Demo</p>
+</body>
+</html>

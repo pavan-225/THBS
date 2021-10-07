@@ -1,0 +1,451 @@
+1)
+package com.torryharris.mainpack;
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        List<String> LL1=new LinkedList<String>();
+        LL1.add("Apple");
+        LL1.add("Pine Apple");
+        LL1.add("Banana");
+        System.out.println("Is empty? "+LL1.isEmpty());
+
+        System.out.println("Contains Banana? "+LL1.contains("Banana"));
+
+        ListIterator<String> it =LL1.listIterator();
+        System.out.println("In forward Direction");
+        while (it.hasNext()){
+            System.out.println(it.next()+" ");
+        }
+        System.out.println();
+        System.out.println("In Backward Direction");
+        while (it.hasPrevious()){
+            System.out.println(it.previous()+" ");
+        }
+
+        System.out.println();
+
+        Collections.reverse(LL1);
+        System.out.println(LL1);
+        Collections.sort(LL1);
+        System.out.println(LL1);
+        Collections.shuffle(LL1);
+        System.out.println(LL1);
+
+
+
+
+    }
+}
+
+2)
+package com.torryharris.mainpack;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        List<String> strlist = new ArrayList<String>();
+            strlist.add("Madhu");
+            strlist.add("karun");
+            strlist.add("lalit");
+            strlist.add("Madhu");
+            strlist.add("karun");
+        System.out.println(strlist);
+
+        strlist.add(1,"Rajesh");
+        System.out.println(strlist);
+        strlist.remove(4);
+        System.out.println(strlist);
+        strlist.remove("karun");
+        System.out.println(strlist);
+
+        ArrayList<String> sublist=new ArrayList<String>();
+        sublist.add("one");
+        sublist.add("two");
+        sublist.add("three");
+
+        strlist.addAll(1,sublist);
+        System.out.println(strlist);
+
+        for (int i=0;i<strlist.size();i++){
+            System.out.print(strlist.get(i)+"  ");
+
+        }
+        System.out.println();
+        for(String s:strlist){
+            System.out.print(s+" ");
+        }
+        System.out.println();
+
+        Iterator<String> it=strlist.iterator();
+        while (it.hasNext()){
+            System.out.print(it.next().toUpperCase()+"  ");
+        }
+        System.out.println();
+
+        Scanner sc=new Scanner(System.in);
+        ArrayList<Integer> iList=new ArrayList<Integer>();
+        System.out.println("Enter No Of elements in the arrayList");
+
+        int n=sc.nextInt();
+        for(int i=0;i<n;i++){
+            System.out.println("Enter the element :"+(i+1));
+            int ele= sc.nextInt();
+            iList.add(ele);
+        }
+        System.out.println();
+
+        int sum=0;
+        Iterator<Integer> it1=iList.iterator();
+
+        while (it1.hasNext()){
+            int ele1=it1.next();
+            System.out.print(ele1+" ");
+            sum+=ele1;
+        }
+        System.out.println();
+        System.out.println("Sum of elements is "+sum);
+
+
+    }
+}
+2)
+package custpack;
+
+public class Customer {
+    public int id;
+    public String name;
+
+    public Customer(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+}
+
+package mainpack;
+
+import custpack.Customer;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+
+    public static void main(String[] args) {
+       /* Map<String,Integer> hm=new HashMap<String,Integer>();
+        hm.put("Sofa",15000);
+        hm.put("Table",10000);
+        hm.put("Cot",2000);
+
+        System.out.println(hm.keySet());
+        System.out.println(hm.values());
+        System.out.println(hm.entrySet());
+
+        System.out.println("Printing the map elements using for loop");
+        for(String s:hm.keySet()){
+            System.out.println(s+"  "+hm.get(s));
+        }
+        int totalC=0;
+        for(String s:hm.keySet()){
+            totalC+=hm.get(s);
+
+        }
+        System.out.println("Total is "+totalC);*/
+
+        HashMap<Customer,Integer> cust=new HashMap<Customer,Integer>();
+        cust.put(new Customer(12,"Pavan"),1000);
+        cust.put(new Customer(15,"Ravan"),5000);
+        cust.put(new Customer(18,"Sravan"),8000);
+        int totalsale = 0;
+        for(Customer c:cust.keySet()){
+
+            totalsale+=cust.get(c);
+
+
+        }
+        System.out.println("Total Sale is "+totalsale);
+
+
+    }
+}
+
+3)
+
+package com.torryharris.mainpack;
+
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Set s2=new HashSet();
+        s2.add("pa1");
+        s2.add(123);
+        s2.add("12.5");
+        System.out.println(s2);
+
+	// HashSet
+        HashSet<String> s1=new HashSet<String>();
+        s1.add("qer");
+        s1.add("pa1");
+        s1.add("java");
+
+
+        System.out.println(s1);
+        System.out.println();
+
+        // Linked HashSet
+        Set<String> s3=new LinkedHashSet<String>();
+        s3.add("aaa");
+        s3.add("xyz");
+        s3.add("pop");
+        s3.add("oops");
+        System.out.println(s3);
+
+        //TreeSet
+        Set<String> s4=new TreeSet<String>();
+        s4.add("Pavan");
+        s4.add("Akhil");
+        s4.add("Tarunn");
+        s4.add("Varun");
+        System.out.println(s4);
+
+
+    }
+}
+
+
+4)
+package com.torryharris.mainpack;
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Map<Integer, String> mp = new HashMap<Integer, String>();
+
+        mp.put(100, "Books");
+        mp.put(300, "cars");
+        mp.put(900, "Paper");
+
+        mp.put(null, null);
+        mp.put(100, null);
+        System.out.println(mp);
+
+
+        Map<Integer, String> mp1 = new LinkedHashMap<Integer, String>();
+        mp1.put(100, "Books");
+        mp1.put(300, "cars");
+        mp1.put(200, "Paper");
+
+        mp1.put(null, null);
+        mp1.put(100, null);
+        System.out.println(mp1);
+
+        Map<Integer, String> mp2 = new TreeMap<Integer, String>();
+        mp2.put(100, "Books");
+        mp2.put(300, "cars");
+        mp2.put(700, "Paper");
+
+        mp2.put(899, null);
+        mp2.put(100, null);
+        System.out.println(mp2);
+
+
+       Map<Integer,String> hb=new Hashtable<Integer,String>();
+
+        mp2.put(100, "Books");
+        mp2.put(300, "cars");
+        mp2.put(700, "Paper");
+
+        mp2.put(899, "null");
+        mp2.put(150, "null");
+        System.out.println(mp2);
+
+
+    }
+
+}
+
+5)
+package com.torryharris.mainpack;
+
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Queue<String> q=new LinkedList<String>();
+
+        q.add("Java");
+        q.add("Java sript");
+        q.add(".Net");
+        q.add("HTML5");
+
+        System.out.println(q);
+        System.out.println(q.poll());
+        System.out.println(q);
+
+        System.out.println(q.peek());
+
+    }
+}
+
+
+6)
+package com.torryharris.mainpack;
+
+import java.util.Stack;
+import java.util.Vector;
+
+public class Main {
+
+    public static void main(String[] args) {
+        //Vector<String> st=new Stack<String>();
+        Stack<String> st=new Stack<String>();
+        st.push("Pavan");
+        st.push("Kumar");
+        st.push("Bojanapu");
+
+        System.out.println(st.pop());
+        System.out.println(st.peek());
+        System.out.println(st);
+
+
+        st.add(2,"Bojanapu");
+        System.out.println(st);
+
+        System.out.println(st.search("Pavan"));
+    }
+}
+
+
+7)
+package com.torryharris.mainpack;
+
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.Vector;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Vector<String> vs=new Vector<String>();
+
+        vs.add("Seenu");
+        vs.add("Ramu");
+        vs.add("Rani");
+
+        Enumeration<String> e= vs.elements();
+        while (e.hasMoreElements()){
+            System.out.print(e.nextElement()+"  ");
+        }
+
+        System.out.println();
+        Iterator<String> it= vs.iterator();
+        while (it.hasNext()){
+            System.out.print(it.next()+"  ");
+        }
+
+
+    }
+}
+
+
+8)
+package com.torryharris.mainpack.mainpack;
+
+import com.torryharris.mainpack.mydatepack.MyDate;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+       /* MyDate d1=new MyDate(27,07,2020);
+        MyDate d2= new MyDate(26,07,2020);
+        MyDate d4=new MyDate(28,03,2020);
+        MyDate d3=d1;
+
+        System.out.println("***  "+d1.equals(d4));
+        System.out.println(d1.hashCode());
+        System.out.println(d2.hashCode());
+        System.out.println(d3.hashCode());
+        System.out.println(d4.hashCode());*/
+
+        String str1="hii1";
+        String str2="hii1";
+       System.out.println(str1.equals(str2));
+        System.out.println(str1.hashCode());
+       System.out.println(str2.hashCode());
+
+
+
+
+
+
+
+
+
+
+    }
+}
+
+package com.torryharris.mainpack.mydatepack;
+
+public class MyDate {
+     private int dd;
+     private int mm;
+     private int yy;
+
+    public MyDate(int dd, int mm, int yy) {
+        this.dd = dd;
+        this.mm = mm;
+        this.yy = yy;
+    }
+    @Override
+    public boolean equals(Object obj){
+        MyDate d=(MyDate) obj;
+        if((this.dd==d.dd) && (this.mm==d.mm) && (this.yy==d.yy))
+            return true;
+        else
+            return false;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return (dd^mm^yy);
+    }
+
+    @Override
+    public String toString() {
+        return "MyDate{" +
+                "dd=" + dd +
+                ", mm=" + mm +
+                ", yy=" + yy +
+                '}';
+    }
+}
+

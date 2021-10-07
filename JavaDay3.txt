@@ -1,0 +1,418 @@
+1)
+package com.torryharris;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+       /*int[] arr=new int[]{2,3,3,9,9,1,1,88,2,99,7};
+        int n= arr.length,count=0;
+        Arrays.sort(arr);
+        for(int j=0;j<(n-1);j++){
+
+                if(arr[j]==arr[j+1])
+                   count++;
+
+
+        }
+
+        for(int i=0;i<n;i++) {
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println();
+        System.out.println("No Of Repeated Integers = "+count);*/
+
+       /*int a[] = { 2,3,3,4,4,5};
+        int n = a.length;
+        int[] temp = new int[n];
+        int j = 0;
+        Arrays.sort(a);
+        for (int i = 0; i < n; i++) {
+            System.out.print(a[i]);
+
+        }
+        System.out.println();
+        for (int i = 0; i < n - 1; i++) {
+            if (a[i] != a[i + 1]) {
+                temp[j++] = a[i];
+
+
+
+            }
+
+        }
+        temp[j]=a[n-1];
+        int k=temp.length;
+        for (int i = 0; i < j+1; i++)
+            System.out.print(temp[i] + " ");*/
+
+       /* int[] arr=new int[]{10,20,30,40,50};
+        int n= arr.length;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the element and Position to replace");
+        int Ele=sc.nextInt();
+        int Pos= sc.nextInt();
+
+        for(int i=0;i<n;i++){
+            if(i+1==Pos){
+                arr[i]=Ele;
+            }
+        }
+        for (int i = 0; i < n; i++)
+            System.out.print(arr[i]+" ");*/
+
+        Scanner sc=new Scanner(System.in);
+        int number, temp, total = 0;
+        System.out.println("Enter the Number");
+        int num=sc.nextInt();
+        number = num;
+        while (number != 0)
+        {
+            temp = number % 10;
+            total = total + temp*temp*temp;
+            number /= 10;
+        }
+
+        if(total == num)
+            System.out.println(num + " is an Armstrong number");
+        else
+            System.out.println(num + " is not an Armstrong number");
+
+
+    }
+
+
+
+
+}
+
+
+2)
+package com.torryharris;
+
+import com.torryharris.Circle.Circle;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Circle c1=new Circle();
+        System.out.println(c1);
+
+        Circle c2=new Circle(6.0);
+        System.out.println(c2);
+
+        Circle c3=new Circle("Yellow");
+        System.out.println(c3);
+
+        Circle c4=new Circle(6.0,"Green");
+        System.out.println(c4);
+    }
+}
+
+package com.torryharris.Circle;
+
+public class Circle {
+    private double radius;
+    private String colour;
+
+    public Circle(){
+        /*this.radius=3.5;
+        this.colour="Blue";*/
+        this(3.5,"Red");
+    }
+    public Circle(double radius){
+        this(radius,"Brown");
+
+
+    }
+    public Circle(String colour){
+        this(6.0,colour);
+    }
+    public Circle(double radius,String colour){
+        this.radius=radius;
+        this.colour=colour;
+    }
+
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "radius=" + radius +
+                ", colour='" + colour + '\'' +
+                '}';
+    }
+}
+
+
+3)
+package com.torryharris.Player;
+
+import java.util.Random;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Player p1=new Player();
+        int p1Score=p1.play();
+        int p1d1score=p1.getD1score();
+        int p1d2score=p1.getD2score();
+        System.out.println("P1 Score = "+p1Score);
+        System.out.println("P1 Dice1Score = "+p1d1score+",P2 Dice2Score = "+p1d2score  );
+
+        Player p2=new Player();
+        int p2Score=p2.play();
+        int p2d1score=p2.getD1score();
+        int p2d2score=p2.getD2score();
+        System.out.println("P2 Score = "+p2Score);
+        System.out.println("P2 Dice1Score = "+p2d1score+",P2 Dice2Score = "+p2d2score  );
+
+    if (p1Score>p2Score){
+        System.out.println("P1 is Winner");
+    }
+    else if (p1Score==p2Score){
+        System.out.println("Both Players p1 and p2 are winners");
+    }
+    else{
+        System.out.println("P2 is winner");
+    }
+
+    }
+}
+
+package com.torryharris.Player;
+
+import java.util.Random;
+
+public class Dice {
+
+        private  int fValue;
+
+        public int roll()
+        {
+            Random rand=new Random();
+            fValue=((int)rand.nextInt(5)+1);
+            return fValue;
+        }
+        public int getfValue(){
+            return fValue;
+        }
+
+}
+
+package com.torryharris.Player;
+
+public class Player {
+    Dice d1;
+    Dice d2;
+
+    public Player(){
+        d1=new Dice();
+        d2=new Dice();
+    }
+    public int play(){
+        return (d1.roll()+ d2.roll());
+    }
+    public int getD1score(){
+        return (d1.getfValue());
+    }
+    public int getD2score(){
+        return (d2.getfValue());
+    }
+}
+
+
+4)
+
+package com.torryharris.main;
+
+import com.torryharris.utility.Average;
+import com.torryharris.utility.Summation;
+import com.torryharris.utility.Tax;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+      /*  Summation sob=new Summation();
+        System.out.println(sob.add(10,14));
+        System.out.println(sob.add(10,8.8F,12.8));
+        System.out.println(sob.add("Good ","Afternoon"));
+        Tax t1=new Tax();
+        System.out.println("Tax Calculated = "+t1.cal_tax(20000,'t'));
+        System.out.println("Tax Calculated = " +t1.cal_tax(20000));*/
+        Average avg=new Average();
+        System.out.println("Average is "+avg.cal_Avg(2,3,4,88,9,765));
+        System.out.println("Avge is "+avg.cal_Avg(34.5,67.4f,3,3,32,88));
+
+
+
+    }
+}
+
+package com.torryharris.utility;
+
+public class Average {
+    public double cal_Avg(int ...numbers){
+        int sum=0;
+        for(int n:numbers){
+            sum+=n;
+        }
+        return (sum/ numbers.length);
+
+    }
+    public double cal_Avg(double d,float f,int ...numbers){
+        double c=d+f;
+        double sum=c;
+        for(int n:numbers){
+            sum+=n;
+        }
+        return (sum/(numbers.length+2));
+
+    }
+
+}
+
+package com.torryharris.utility;
+
+public class Summation {
+
+    public int add(int x,int y){
+        return (x+y);
+    }
+    public double add(int x,float y,double z){
+        return (x+y+z);
+    }
+    public String add(String s1,String S2){
+        return (s1+S2);
+    }
+}
+
+package com.torryharris.utility;
+
+public class Tax {
+    public double cal_tax(long amount,char status){
+        return (amount*0.1);
+    }
+    public double cal_tax(long amount){
+        return (amount*0.4);
+    }
+}
+
+
+5)
+package com.torryharris.mainpack;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+          Address add=new Address(321,"Tarak","MPL","AP",517325);
+          Person P1=new Person(123,"Pavan",add);
+        System.out.println(P1);
+
+    }
+}
+
+package com.torryharris.mainpack;
+
+public class Address
+{
+    private int doorNo;
+    private String street;
+    private String city;
+    private String state;
+    private  int pincode;
+
+    public Address(int doorNo, String street,  String city, String state, int pincode) {
+        this.doorNo = doorNo;
+        this.street = street;
+        this.city = city;
+        this.state= state;
+        this.pincode = pincode;
+    }
+    @Override
+    public String toString() {
+        return "{" + "doorNo=" + doorNo + ", street='" + street + '\'' +
+                ", city=" + city +", state=" +state +", pincode=" + pincode + "}";
+
+
+    }
+
+
+
+}
+
+package com.torryharris.mainpack;
+
+public class Person {
+    private int personId;
+    private String personName;
+
+    public Person(int personId, String personName,Address add) {
+        this.personId = personId;
+        this.personName = personName;
+
+    }
+    @Override
+    public String toString() {
+        return "{" + "personId=" + personId + ", personName='" + personName+ '\'' +
+                "}";
+
+
+    }
+
+}
+
+
+6)
+
+package com.torryharris.mainpack;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Person p1=new Person(1,"car");
+        Person p2=new Person(2,"bike");
+        System.out.println(p1);
+        System.out.println(p2);
+
+        System.out.println(Person.getcountpersons());
+
+    }
+}
+
+package com.torryharris.mainpack;
+
+public class Person {
+
+    private static int count;
+    private int pId;
+    private String pName;
+
+    static {
+        count=0;
+    }
+    public Person(int pId,String pName){
+        this.pId=pId;
+        this.pName=pName;
+        ++count;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "pId=" + pId +
+                ", pName=" + pName +
+                '}';
+    }
+    public static int getcountpersons(){
+        return count;
+    }
+
+}
+

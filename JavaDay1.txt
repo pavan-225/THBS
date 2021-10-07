@@ -1,0 +1,230 @@
+1)
+package com.torryharris;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // write your code here
+        /*int[] arr={1,2,3,4,5,6};
+        System.out.println("Printing the numbers");
+        for(int i=0;i< arr.length;i++){
+            System.out.print(arr[i]+" ");
+        }
+    }*/
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter no of elements");
+        int n = sc.nextInt();
+
+        int[] arr1 = new int[n];
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter the Element - " + (i + 1));
+            arr1[i] = sc.nextInt();
+        }
+        for (int j = 0; j < n; j++) {
+            System.out.print(arr1[j] + " ");
+        }
+    }
+}
+
+
+
+2)
+package com.torryharris;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // write your code here
+
+       /* int year = 1996;
+        boolean leap = false;
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                if (year % 400 == 0)
+                    leap = true;
+                else
+                    leap = false;
+            }
+            else
+                leap = true;
+        }
+        else
+            leap = false;
+
+        if (leap)
+            System.out.println(year + " is a leap year.");
+        else
+            System.out.println(year + " is not a leap year.");
+    }
+        int number = 371, originalNumber, remainder, result = 0;
+
+        originalNumber = number;
+
+        while (originalNumber != 0)
+        {
+            remainder = originalNumber % 10;
+            result += Math.pow(remainder, 3);
+            originalNumber /= 10;
+        }
+
+        if(result == number)
+            System.out.println(number + " is an Armstrong number.");
+        else
+            System.out.println(number + " is not an Armstrong number.");
+        static boolean isPerfect(int n)
+        {
+
+            int sum = 1;
+            for (int i = 2; i * i <= n; i++)
+            {
+                if (n % i==0)
+                {
+                    if(i * i != n)
+                        sum = sum + i + n / i;
+                    else
+                        sum = sum + i;
+                }
+            }
+            if (sum == n && n != 1)
+                return true;
+
+            return false;
+        }
+
+
+        public static void main (String[] args)
+        {
+            System.out.println("Below are all perfect " +
+                    "numbers till 100");
+            for (int n = 2; n < 100; n++)
+                if (isPerfect(n))
+                    System.out.println( n +
+                            " is a perfect number");*/
+        int num, i, tab;
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("Enter a Number : ");
+        num = scan.nextInt();
+
+        System.out.print("Table of " + num + " is\n");
+        for (i = 1; i <= 10; i++) {
+            tab = num * i;
+            System.out.print(num + " * " + i + " = " + tab + "\n");
+        }
+    }
+
+}
+
+
+
+
+3)
+package com.th;
+
+import java.sql.SQLOutput;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // write your code here
+        Scanner sc = new Scanner(System.in);
+        /*System.out.println("Enter the number");
+        int num=sc.nextInt();
+        if(num%2==0){
+            System.out.println(num+" is Even number");
+        }
+        else{
+            System.out.println(num+" is Odd number");
+        }
+        System.out.println("Enter three numbers");
+        int n1=sc.nextInt();
+        double n2= sc.nextDouble();
+        long n3= sc.nextLong();
+        double large1=(n1>n2)?n1:n2;
+        double large2=(large1>n3)?large1:n3;
+        System.out.println(large2+" is the largest");
+        float f1=2.345678f;
+        double d1= f1;
+        System.out.println(d1);*/
+       /* System.out.println("Enter the number to reverse");
+        int num=sc.nextInt();
+        int reversenum=reverseNum(num);
+        System.out.println("reversed number = "+reversenum);
+
+    }
+    public static int reverseNum(int n){
+        int rem=0,revnum=0;
+        while(n!=0){
+            rem=n%10;
+            revnum=revnum*10+rem;
+            n=n/10;
+        }
+        return revnum;
+
+    }
+
+        System.out.println("Enter a number");
+        int p = sc.nextInt();
+
+        if (isPrime(p))
+            System.out.println("Prime");
+        else
+            System.out.println("Not Prime");
+    }
+        public static boolean isPrime(int n){
+        boolean flag=true;
+        for(int i=2;i<n/2;i++){
+            if(n%i==0){
+                flag=false;
+                break;
+            }
+        }
+        return flag;
+    }
+        System.out.println("Enter the number");
+        int num = sc.nextInt();
+        long factnum = factorial(num);
+        System.out.println("factorial number = " + factnum);
+    }
+    public static long factorial(int n){
+        long f=1;
+        for(int i=1;i<=n;i++){
+            f=f*i;
+        }
+        return f;
+    }*/
+        System.out.println("Enter the Month number");
+        int mno = sc.nextInt();
+        String totaldays = tofinddays(mno);
+        System.out.println("Total number of days is " + totaldays);
+    }
+    public static String tofinddays(int m){
+        String mn="";
+        switch (m){
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                mn="31 days";
+                break;
+            case 2:
+                mn="28 or 29 days";
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                mn="30 days";
+        }
+        return mn;
+    }
+
+
+}
+

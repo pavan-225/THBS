@@ -1,0 +1,83 @@
+1)
+package com.torryharris.bankpack;
+
+import com.torryharris.account.Account;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Account account1=new Account("Savings",15000);
+        System.out.println(account1);
+
+        System.out.println("Balance after Deposit = "+account1.deposit(1250));
+
+        Account account2=new Account("Current",50000);
+        System.out.println(account2);
+        System.out.println("Balance after withdrawn = "+account2.withdraw(2000));
+
+
+    }
+}
+
+package exception;
+
+public class InsufficientLeaveException extends Exception {
+
+    private String msg;
+
+    public InsufficientLeaveException(String s) {
+
+    }
+
+    @Override
+    public String getMessage() {
+        return msg;
+    }
+}
+
+package mainpack;
+
+import emppack.Employee;
+import exception.InsufficientLeaveException;
+
+public class Main {
+
+    public static void main(String[] args){
+        Employee employee1=new Employee(100,15);
+        System.out.println(employee1);
+
+        try {
+            System.out.println(employee1.applyLeave(5));
+        } catch (InsufficientLeaveException e) {
+            e.printStackTrace();
+        }
+        System.out.println(employee1);
+
+
+    }
+}
+
+2)
+package com.torryharris.mainpack;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        int i=0;
+
+        Integer wInt=new Integer(i);
+        System.out.println(wInt);
+
+        int i1=wInt.intValue();
+        System.out.println(i1);
+
+        Integer wInt1=120;
+
+        int i2=wInt1.intValue();
+
+        String
+
+    }
+}

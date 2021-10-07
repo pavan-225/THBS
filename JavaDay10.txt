@@ -1,0 +1,266 @@
+1)
+
+package Bookop;
+
+import Model.Book;
+
+import java.util.ArrayList;
+
+public class BookOperationimpl implements Bookoperations{
+    private ArrayList<Book> blist=new ArrayList<Book>();
+
+    @Override
+    public String addABook(Book book) {
+        blist.add(book);
+        return "Book Added";
+    }
+
+    @Override
+    public ArrayList<Book> getAllBooks() {
+        return blist;
+    }
+
+    @Override
+    public Book getABook(int bookId) {
+        for (Book book:blist){
+            if(book.getBookId()==bookId)
+                return book;
+        }
+        return null;
+    }
+
+    @Override
+    public String setBookPrice(int bookId, int upPrice) {
+        Book book=getABook(bookId);
+        book.setBookPrice(upPrice);
+        return "Book price updated succesfully";
+    }
+}
+
+package Bookop;
+
+import Model.Book;
+
+import java.util.ArrayList;
+
+public interface Bookoperations {
+
+    String addABook(Book book);
+    ArrayList<Book> getAllBooks();
+    Book getABook(int bookId);
+    String setBookPrice(int bookId,int upPrice);
+}
+
+package mainuipack;
+
+import Bookop.BookOperationimpl;
+import Bookop.Bookoperations;
+import Model.Book;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class BookStoreMain {
+
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        BookOperationimpl boi=new BookOperationimpl();
+
+        while (true){
+            System.out.println("1.Add a Book");
+            System.out.println("2.List All Books");
+            System.out.println("3.Get a Book");
+            System.out.println("4.Update a Book price");
+            System.out.println("5. Exit");
+
+            System.out.println("Enter your choice");
+            int choice=sc.nextInt();
+            switch (choice){
+                case 1: {
+                    System.out.println("Enter the details of Book");
+                    int bookId = sc.nextInt();
+                    String bookname=sc.next();
+                    int bookprice=sc.nextInt();
+                    Book book=new Book(bookId,bookname,bookprice);
+                    System.out.println(boi.addABook(book));
+                    break;
+                }
+                case 2: {
+                    ArrayList<Book> blist= boi.getAllBooks();
+                    for (Book book:blist){
+                        System.out.println(book);
+                    }
+
+                    break;
+
+                }
+                case 3:{
+                    System.out.println("Enter the book id");
+                    int bookId= sc.nextInt();
+                    Book book=boi.getABook(bookId);
+
+                    if(book!=null){
+                        System.out.println(book);}
+                    else
+                        System.out.println("Book Not found");
+                    break;
+
+                }
+                case 4:{
+                    System.out.println("Enter the book id");
+                    int bookId= sc.nextInt();
+                    System.out.println("Enter the Updated book price");
+                    int upPrice = sc.nextInt();
+                    System.out.println(boi.setBookPrice(bookId,upPrice));
+                    break;
+                }
+                default:
+                {
+                    sc.close();
+                    System.out.println("Bye Bye!");
+                    System.exit(0);
+                }
+            }
+
+
+        }
+
+
+    }
+}
+
+package Model;
+
+public class Book {
+    private int BookId;
+    private String BookName;
+    private int BookPrice;
+
+    public Book(int bookId, String bookName, int bookPrice) {
+        BookId = bookId;
+        BookName = bookName;
+        BookPrice = bookPrice;
+    }
+
+
+
+    public void setBookPrice(int bookPrice) {
+        this.BookPrice = bookPrice;
+    }
+
+    public int getBookId() {
+        return BookId;
+    }
+
+    public String getBookName() {
+        return BookName;
+    }
+
+    public int getBookPrice() {
+        return BookPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "BookId=" + BookId +
+                ", BookName='" + BookName + '\'' +
+                ", BookPrice=" + BookPrice +
+                '}';
+    }
+}
+
+
+2)
+package com.torryharris.mainpack;
+
+import java.io.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        File file1=new File("C:\\Users\\pavan_bojanapu\\Desktop\\thfile1.txt");
+        File file2=new File("C:\\Users\\pavan_bojanapu\\Desktop\\thfile2.txt");
+
+        try (FileInputStream input=new FileInputStream(file1);
+             BufferedInputStream bis=new BufferedInputStream(input);
+             FileOutputStream output=new FileOutputStream(file2);
+             BufferedOutputStream bos=new BufferedOutputStream(output);){
+
+
+            byte[] buffer=new byte[input.available()];
+            bis.read(buffer);
+            bos.write(buffer);
+
+           // int c;
+            //while ((c=bis.read())!=-1)
+
+            for(byte b:buffer)
+            {
+
+               // bos.write(c);
+                System.out.print((char)b);
+
+
+            }
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+}
+
+
+
+3)
+import lombok.*;
+
+@Getter
+@AllArgsConstructor
+@Setter
+@ToString
+@NoArgsConstructor
+public class Customer {
+    private int cusId;
+    private String cusName;
+    private int balance;
+
+
+
+}
+
+import lombok.Data;
+
+public @Data class Person{
+
+    private int PId;
+    private String pName;
+
+
+}
+
+public class Main {
+    public static void main(String[] args){
+
+        Customer cus1=new Customer(123,"Pavan",1000);
+        System.out.println(cus1);
+        System.out.println(cus1.getCusId()+" "+cus1.getCusName()+" "+cus1.getBalance());
+
+        Customer cust2=new Customer();
+        cust2.setCusId(155);
+        cust2.setCusName("Ramarao");
+        cust2.setBalance(99999);
+        System.out.println(cust2.getCusId()+" "+cust2.getCusName()+" "+cust2.getBalance());
+
+        Person person=new Person();
+        person.setPId(18);
+        person.setPName("ooty");
+        System.out.println(person);
+    }
+}
